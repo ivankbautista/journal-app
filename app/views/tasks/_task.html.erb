@@ -1,0 +1,26 @@
+<p>
+    <strong>Task Name:</strong>
+    <%= task.title %>
+</p>
+
+<p>
+    <strong>Details:</Strong>
+    <%= task.details %>
+</p>
+
+<p>
+    <strong>Date:</Strong>
+    <%= task.date %>
+</p>
+
+<p>
+    <strong>Status of Task:</strong>
+    <%= task.status %>
+</p>
+
+<p>
+    <li><%= link_to "Edit", edit_category_task_path(@category, task.id) %></li>
+    <li><%= link_to "Remove Task", category_path(task.category, task),
+                    method: :delete,
+                    data: { confirm: 'Are you sure with this?' } %></li>
+</p>
