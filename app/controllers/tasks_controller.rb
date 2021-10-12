@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+    before_action :let_category
+    before_action :let_task, only: [:new, :edit, :update, :destroy]
 
     def index
         redirect_to @category
@@ -13,8 +15,13 @@ class TasksController < ApplicationController
     
     def create
         @category = Category.find(params[:category_id])
-        @task = @category.tasks.create(task_params)
-        redirect_to category_path(@category)
+        @task = @category.tasks.new(task_params)
+
+        if @task.save
+            redirect_to category_path(@category)
+        else
+            render :new
+        end
     end
 
     def edit
@@ -29,8 +36,6 @@ class TasksController < ApplicationController
     end
 
     def destroy
-        @category = Category.find(params[:category_id])
-        @task = @category.tasks.find(params[:id])
         @task.destroy
         redirect_to category_path(@category)
     end
@@ -38,5 +43,13 @@ class TasksController < ApplicationController
     private
         def task_params
             params.require(:task).permit(:title, :details, :date, :status)
+        end
+
+        def let_category
+            @category = Category.find(params[:category_id])
+        end
+
+        def let_task
+            @task = @category.tasks.find(params[:id])
         end
     end
