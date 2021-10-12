@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :let_category
-    before_action :let_task, only: [:new, :edit, :update, :destroy]
+    before_action :let_task, only: [:show, :edit, :update, :destroy]
 
     def index
         redirect_to @category
@@ -14,7 +14,6 @@ class TasksController < ApplicationController
     end
     
     def create
-        @category = Category.find(params[:category_id])
         @task = @category.tasks.new(task_params)
 
         if @task.save
