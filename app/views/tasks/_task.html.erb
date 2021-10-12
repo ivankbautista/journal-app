@@ -20,7 +20,7 @@
 
 <p>
     <li><%= link_to "Edit", edit_category_task_path(@category, task.id) %></li>
-    <li><%= link_to "Remove Task", category_path(task.category, task),
+    <li><%= link_to "Remove Task", [task.category, task],
                     method: :delete,
                     data: { confirm: 'Are you sure with this?' } %></li>
 </p>
