@@ -4,9 +4,11 @@
 
 <ul>
     <% @categories.each do |category| %>
+        <% if category.user == current_user %>
         <li>
             <%= link_to category.title, category %>
         </li>
+        <% end %>
     <% end %>
 </ul>
 
