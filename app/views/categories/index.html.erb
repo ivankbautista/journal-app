@@ -4,9 +4,12 @@
 
 <ul>
     <% @categories.each do |category| %>
-        <li>
-            <%= link_to category.title, category %>
-        </li>
+        <% category.tasks.each do |task| %>
+            <li>
+                <%= link_to category.title, category %><br>
+                <ul><%= task.title %></ul>
+            </li>
+        <% end %>
     <% end %>
 </ul>
 
