@@ -4,21 +4,7 @@
 </p>
 
 <p>
-    <strong>Details:</strong>
-    <%= task.details %>
-</p>
-
-<p>
-    <strong>Date:</strong>
-    <%= task.date %>
-</p>
-
-<p>
-    <strong>Status of Task:</strong>
-    <%= task.status %>
-</p>
-
-<p>
+    <li><%= link_to "Expand Task", category_task_path(@category, task.id) %></li>
     <li><%= link_to "Edit", edit_category_task_path(@category, task.id) %></li>
     <li><%= link_to "Remove Task", [task.category, task],
                     method: :delete,
