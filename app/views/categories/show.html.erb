@@ -10,3 +10,4 @@
 <h2>List of Tasks</h2>
     <%= render @category.tasks %>
     <%= link_to "Add a Task to do!", new_category_task_path(@category) %>
+    <%= link_to "Back", categories_path(@category) %>
