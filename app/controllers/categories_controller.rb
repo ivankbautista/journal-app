@@ -3,11 +3,10 @@ class CategoriesController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   def show
-    @category = Category.find(params[:id])
   end
 
   def new
@@ -25,12 +24,9 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
-
     if @category.update(category_params)
       redirect_to @category
     else
@@ -39,7 +35,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     
     redirect_to categories_path
