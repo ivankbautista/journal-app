@@ -9,14 +9,12 @@
         <%= form.text_area :details %>
     </p>
 
-    <p>
-        <%= form.label :date %></br>
-        <%= form.date_select :date %>
-    </p>
+        <%= form.label :"Due Date" %></br>
+        <%= form.datetime_select :date %>
 
     <p>
         <%= form.check_box :status %>
-        <%= form.label :status, "Status of Task?" %><br>
+        <%= form.label :status, "Done?" %><br>
     </p>
 
     <p>
