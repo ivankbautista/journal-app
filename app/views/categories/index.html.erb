@@ -7,7 +7,13 @@
         <% category.tasks.each do |task| %>
             <li>
                 <%= link_to category.title, category %><br>
-                <ul><%= task.title %></ul>
+                <% if task.status == true %>
+                <strike>
+                    <ul><%= task.title %></ul>
+                </strike>
+                <% else %>
+                    <ul><%= task.title %></ul>
+                <% end %>
             </li>
         <% end %>
     <% end %>
