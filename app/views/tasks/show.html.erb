@@ -1,4 +1,6 @@
-<p><%= @task.title %><p>
-<p><%= @task.details %></p>
-<p><%= @task.date %></p>
-<p><%= @task.status %></p>
+<p>Task Title: <%= @task.title %><p>
+<p>Details: <%= @task.details %></p>
+<p>Deadline: <%= @task.date.strftime("%B %D, %Y")%></p>
+<p>Status: <%= @task.status %></p>
+
+<%= link_to "Back", categories_path(@category_task_path) %>
