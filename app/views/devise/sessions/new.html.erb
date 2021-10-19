@@ -5,10 +5,13 @@
 		</div>
     <div class="relative px-4 py-5 bg-white shadow-lg sm:rounded-3xl sm:p-20">
       <div class="max-w-md mx-auto">
-				<div class="text-center mb-5">
-					<h1 class="text-2xl font-semibold">Task Mate </h1>
-          <p>Your partner in your daily life.</p>
+				<div class="text-center mb-3">
+					<h1 class="text-2xl font-bold mb-1">Task Mate </h1>
+          <p>Your partner in your <strong>daily</strong> life.</p>
 				</div>
+        <% if alert %>
+          <p class="alert alert-danger text-center text-red-500 font-bold mb-2 rounded-lg border-2 border-red-500"><%= alert %></p>
+        <% end %>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="flex">
             <div class="field form-group w-full px-3 mb-5">
