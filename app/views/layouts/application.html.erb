@@ -9,19 +9,42 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  <% if user_signed_in? %>
+    <body class="flex flex-col bg-gray text-black bg-gray-500 h-screen">
+      <div class="flex justify-between items-center bg-gray-900 text-x1 h-12 px-12 text-white">
+        <div class="flex items-center justify-center">
+          <p class="-ml-5 mr-10 cursor-pointer hover:bg-green-400 transition-all h-full">
+            <a href="/" class="font-bold text4x-1">📝TaskMate</a>
+          </p>
 
-  <body>
-    <p class="navbar-text float-right">
-      <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
-      <% end %>
-    </p>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-    <%= yield %>
+          <p class="flex items-center justify-center h-full">
+          <a href="/" class="flex items-center justify-center h-full hover:bg-green-400 transition-all">🏠Home</a>
+          </p>
+        </div>
+
+          <div class="flex items-center h-full">
+            <p class="flex items-center justify-center h-full">
+              <p>Good day, <strong><%= current_user.email %></strong>
+            </p>
+
+            <p class="flex items-center justify-center h-full">
+              <%= link_to "✏️Edit Profile", edit_user_registration_path, class: "flex items-center justify-center h-full hover:bg-green-400 transition-all m-4" %>
+            </p>
+
+            <p class="flex items-center justify-center h-full">
+              <%= link_to "👋Logout", destroy_user_session_path, method: :delete, class: "flex items-center justify-center h-full hover:bg-green-400 transition-all m-2" %>
+            </p>
+
+          </div>
+      </div>
+      
+      <div class="flex items-center justify-center flex-col px-8 py-8">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+  <% end %>
+      <%= yield %>
+      </div>
   </body>
 </html>
