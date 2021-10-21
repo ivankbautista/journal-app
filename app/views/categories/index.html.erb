@@ -1,22 +1,20 @@
-<h1>Good day, Ivan</h1>
-<p>These are your different activites in life:</p>
+<div class="w-full h-full">
+    <h1 class="text-4xl mb-3 mx-3">🌤️Your Tasks Today:</h1>
 
-
-<ul>
+    <div class="flex">
     <% @categories.each do |category| %>
         <% category.tasks.each do |task| %>
-            <li>
-                <%= link_to category.title, category %><br>
+                <%= link_to category.title, category %></br>
                 <% if task.status == true %>
                 <strike>
-                    <ul><%= task.title %></ul>
+                    <%= task.title %>
                 </strike>
                 <% else %>
-                    <ul><%= task.title %></ul>
+                    <%= task.title %>
                 <% end %>
-            </li>
         <% end %>
     <% end %>
-</ul>
+    </div>
 
-<%= link_to "New Entry", new_category_path %>
+    <%= link_to "New Entry", new_category_path %>
+</div>
