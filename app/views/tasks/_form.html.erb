@@ -1,23 +1,48 @@
-<%= form_with model: [ category, task ] do |form| %>
-    <p>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
-    </p>
+<div class="relative px-4 py-5 bg-white shadow-lg sm:rounded-3xl sm:p-10">
+    <div class="max-w-md mx-auto">
+        <div class="text-center mb-3">
+			<h1 class="text-2xl font-bold mb-10">Configure your task below: </h1>
+		 </div>
+            <%= form_with model: [ category, task ] do |form| %>
+                <div class="flex">
+                    <div class="field form-group w-full px-3 mb-5">
+                        <%= form.label :title, class:"text-4x1 font-semibold" %><br>
+                        <div class="flex">
+                            <%= form.text_field :title, class:"form-control w-full pl-2 pr-2 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" %>
+                         </div>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="field form-group w-full px-3 mb-5">
+                        <%= form.label :details, class:"text-4x1 font-semibold" %><br>
+                        <div class="flex">
+                            <%= form.text_area :details, class:"form-control w-full pl-2 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" %>
+                         </div>
+                    </div>
+                </div>
 
-    <p>
-        <%= form.label :details %><br>
-        <%= form.text_area :details %>
-    </p>
+                <div class="flex">
+                    <div class="field form-group w-full px-3 mb-5">
+                        <%= form.label :"Due Date", class:"text-4x1 font-semibold" %><br>
+                        <div class="flex">
+                            <%= form.datetime_select :date, class:"w-full px-4 py-2
+                            text-base text-black
+                            border border-gray-200 rounded-md
+                            focus:outline-none focus:border-gray-500
+                            transition duration-200
+                            cursor-pointer" %>
+                        </div>
+                    </div>
+                </div>
+                
 
-        <%= form.label :"Due Date" %></br>
-        <%= form.datetime_select :date %>
+                <div class="flex, text-center mb-3">
+                    <%= form.check_box :status %>
+                    <%= form.label :status, "Done?" %><br>
+                </div>
 
-    <p>
-        <%= form.check_box :status %>
-        <%= form.label :status, "Done?" %><br>
-    </p>
-
-    <p>
-        <%= form.submit "Update Current Task" %>
-    </p>
-<% end %>
+                <div>
+                    <%= form.submit "Update Current Task", class:"w-full py-2 px-4 rounded-lg bg-indigo-600 text-white hover:bg-green-dark focus:outline-none" %>
+                </div>
+            <% end %>
