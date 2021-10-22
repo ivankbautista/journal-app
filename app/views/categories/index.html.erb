@@ -1,20 +1,10 @@
 <div class="w-full h-full">
-    <h1 class="text-4xl mb-3 mx-3">🌤️Your Tasks Today:</h1>
+    <h1 class="text-4xl mb-10 mx-3 text-center text-black">🌤️Your Tasks Today:</h1>
 
-    <div class="flex">
-    <% @categories.each do |category| %>
-        <% category.tasks.each do |task| %>
-                <%= link_to category.title, category %></br>
-                <% if task.status == true %>
-                <strike>
-                    <%= task.title %>
-                </strike>
-                <% else %>
-                    <%= task.title %>
-                <% end %>
+    <div class="flex flex-wrap">
+        <% @categories.each do |category| %>
+            <%= render 'categorycard', category: category %>
         <% end %>
-    <% end %>
     </div>
 
-    <%= link_to "New Entry", new_category_path %>
 </div>
