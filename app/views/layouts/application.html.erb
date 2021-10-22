@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Task Mate</title>
+    <title>📝Task Mate</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,7 +11,7 @@
   </head>
   
   <% if user_signed_in? %>
-    <body class="flex flex-col bg-gray text-black bg-gray-500 h-screen">
+    <body class="flex flex-col bg-gray text-black bg-gray-200 h-screen">
       <div class="flex justify-between items-center bg-gray-900 text-x1 h-12 px-12 text-white">
         <div class="flex items-center justify-center">
           <p class="-ml-5 mr-10 cursor-pointer hover:bg-green-400 transition-all h-full">
@@ -21,6 +21,11 @@
           <p class="flex items-center justify-center h-full">
           <a href="/" class="flex items-center justify-center h-full hover:bg-green-400 transition-all">🏠Home</a>
           </p>
+
+          <p class="flex items-center justify-center h-full">
+            <%= link_to "🔖Create Entry", new_category_path, class: "flex items-center justify-center h-full hover:bg-green-400 transition-all m-4" %>
+          </p>
+
         </div>
 
           <div class="flex items-center h-full">
