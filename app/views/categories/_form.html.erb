@@ -1,17 +1,35 @@
-<%= form_with model: @category do |form| %>
-    <div>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
-        <% @category.errors.full_messages_for(:title).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
 
-    <div>
-        <%= form.number_field :user_id, id: :category_user_id, value: current_user.id, type: :hidden %>
-    </div>
+<div class="relative px-4 py-5 bg-white shadow-lg sm:rounded-3xl sm:p-10">
+    <div class="max-w-md mx-auto">
+            <div class="text-center mb-3">
+					<h1 class="text-2xl font-bold mb-10">Configure your entry below: </h1>
+		    </div>
+            
+            <% @category.errors.full_messages_for(:title).each do |message| %>
+                <div class="flex px-4 py-4 justify-center text-center text-red-500 font-bold mb-2 p-2 rounded-lg border-2 border-red-500 "><%= message %></div>
+            <% end %>
 
-    <div>
-        <%= form.submit "Create new task category!" %>
+            <%= form_with model: @category do |form| %>
+                <div class="flex">
+                    <div class="field form-group w-full px-3 mb-5">
+                        <%= form.label :"New Entry Title", class:"text-4x1 font-semibold text-center" %><br>
+                        <div class="flex mt-2">
+                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">🏷️</div>
+                                <%= form.text_field :title, class:"form-control w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" %>
+                            </div>
+                        </div>
+                     </div>
+
+                <div>
+                    <%= form.submit "Create new entry!", class:"w-full py-2 px-4 rounded-lg bg-indigo-600 text-white hover:bg-green-dark focus:outline-none" %>
+                </div>
+
+                <div class="flex flex-col justify-center items-center mt-3">
+                    <%= link_to "Back", categories_path(@category), class:"items-center text-center text-gray-400 hover:text-green-800
+                    text-sm font-semibold
+                    " %>
+                </div>
+            <% end %>
+            </div>
     </div>
-<% end %>
+</div>
