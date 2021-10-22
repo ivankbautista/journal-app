@@ -1,12 +1,16 @@
-<p>
-    <strong>Task Name:</strong>
-        <%= task.title %>
-</p>
-
-<p>
-    <li><%= link_to "Expand Task", category_task_path(@category, task.id) %></li>
-    <li><%= link_to "Edit", edit_category_task_path(@category, task.id) %></li>
-    <li><%= link_to "Remove Task", [task.category, task],
-                    method: :delete,
-                    data: { confirm: 'Are you sure with this?' } %></li>
-</p>
+<div class="container mx-auto pr-4">
+    <div class="w-72 bg-white max-w-xs mx-auto rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer mb-5">
+      <div class="h-20 bg-red-400 flex items-center justify-center">
+        <p class="mr-0 text-white text-lg font-bold"><%= task.title %></p>
+      </div>
+      <div class="flex justify-center px-5 pt-6 mb-2 text-sm text-gray-600">
+        <div class ="flex justify-center items-center flex-row text-center text-gray-600 bg-white rounded-lg">
+            <%= link_to "🌳", category_task_path(@category, task.id), class:"rounded-1-lg w-full px-4 hover: text-black hover:bg-green-400" %></li>
+            <%= link_to "✒️", edit_category_task_path(@category, task.id), class:"rounded-1-lg w-full px-4 hover: text-black hover:bg-green-400" %></li>
+            <%= link_to "🗑️", [task.category, task],
+                            method: :delete,
+                            data: { confirm: 'Are you sure with this?' }, class:"rounded-1-lg w-full px-4 hover: text-black hover:bg-green-400"%></li>
+        </div>
+      </div>
+    </div>
+  </div>
