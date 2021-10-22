@@ -1,13 +1,11 @@
-<h1><%= @category.title %></h1>
-
-<ul>
-    <li><%= link_to "Edit", edit_category_path(@category) %></li>
-    <li><%= link_to "Remove Entry", category_path(@category),
-                    method: :delete,
-                    data: { confirm: 'Are you sure with this?' } %></li>
-</ul>
-
-<h2>List of Tasks</h2>
     <%= render @category.tasks %>
-    <%= link_to "Add a Task to do!", new_category_task_path(@category) %>
-    <%= link_to "Back", categories_path(@category) %>
+
+        <div class="w-20 xl:w-1/4">
+            <a href=<%= new_category_path %> class="flex flex-col justify-center items-center rounded-lg shadow-md h-20 
+            bg-opacity-40 hover:bg-opacity-100
+            bg-gray-900 
+            transition duration-50
+            ">
+                <p class="text-3xl font-bold text-gray-400">Add a Task!</p>
+            </a>
+        </div>
