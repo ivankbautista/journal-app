@@ -1,43 +1,70 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="relative px-4 py-5 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+      <div class="max-w-md mx-auto">
+        <div class="text-center mb-3">
+					<h1 class="text-2xl font-bold mb-2">📝Task Mate </h1>
+          <p>Kindly edit your profile below: </p>
+		  </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="flex">
+    <div class="field w-full px-3 mb-5">
+    <%= f.label :email, class:"text-x1 font-semibold" %><br />
+    <div class="flex">
+      <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">📧</div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", placeholder:"johndoe@gmail.com" %>
+    </div>
   </div>
+</div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="flex">
+    <div class="field form-group w-full px-3 mb-5">
+      <%= f.label :password, class:"text-x1 font-semibold" %> <i>(leave blank if you don't want to change it)</i><br />
+      <div class="flex">
+        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">🔑</div>
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", placeholder:"******" %>
+      </div>
+    </div>  
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="flex">
+    <div class="field form-group w-full px-3 mb-5">
+      <%= f.label :password_confirmation, class:"text-x1 font-semibold" %><br />
+      <div class="flex">
+        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">🔐</div>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", placeholder:"******" %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="flex">
+    <div class="field form-group w-full px-3 mb-5">
+      <%= f.label :current_password, class:"text-x1 font-semibold" %> <i>(we need your current password to confirm your changes)</i><br />
+      <div class="flex">
+        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">🗝️</div>
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", placeholder:"******" %>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="text-center mb-5">
+    <%= f.submit "⚡Update", class:"w-full py-2 px-4 rounded-lg bg-green-600 text-white hover:bg-green-dark focus:outline-none cursor-pointer" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+  <div class="text-center">
+    <%= button_to "😥Please delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,
+    class:"w-full py-2 px-4 rounded-lg bg-red-600 text-white hover:bg-black-dark focus:outline-none cursor-pointer" %>
+  </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <div class="text-center mt-5 text-2x1">
+  <%= link_to "Back", :back,  class: "text-center text-gray-400 hover:text-indigo-800
+  text-sm font-semibold
+  "%>
+  </div>
