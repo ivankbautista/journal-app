@@ -15,7 +15,5 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_select "h1", "Work"
   end
 
-  test "" do
-    # user story #2 here
-  end
+
 end
